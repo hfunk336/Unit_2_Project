@@ -28,12 +28,12 @@
       
 */
 
+var donationTotal = 0;
 
+// #7
+forEach()
 
-
-
-
-
+var summaryTable = "<table><tr><th>Donors</th><td>" + donors.array + "</td></tr><tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr></table>";
 
 
 
