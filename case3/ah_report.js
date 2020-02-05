@@ -29,12 +29,34 @@
 */
 
 var donationTotal = 0;
+// creates a new var to hold total for donations
 
-// #7
-forEach()
+donors.forEach(calcSum);
+// calculates the sum for each item in the donors array
 
-var summaryTable = "<table><tr><th>Donors</th><td>" + donors.array + "</td></tr><tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr></table>";
+var summaryTable = "<table><tr><th>Donors</th><td>" +  donors.length  + "</td></tr><tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr></table>";
+// html code to make the table for donor report
 
+document.getElementById("donationSummary").innerHTML = summaryTable;
+// puts the html code from summaryTable into the donationSummary element
+
+var majorDonors = donors.filter(findMajorDonors);
+// filters the donors array using the findMajorDonors function
+
+majorDonors.sort(donorSortDescending);
+// sorts the majorDonors var using the function donorSortDescending
+
+var donorTable = "<table><caption>Major Donors</caption><tr><th>Donation</th><th>Donor ID</th><th>Date</th><th>Name</th><th>Address</th><th>Phone</th><th>E-mail</th></tr>";
+// writes html code for the major donors table
+
+majorDonors.forEach(writeDonorRow);
+// makes a row for each major donar
+
+donorTable += "</table>";
+// ends the table from the html code in donorTable
+
+document.getElementById("donorTable").innerHTML = donorTable;
+// adds the html code into the donorTable element
 
 
 function calcSum(donorAmt) {
